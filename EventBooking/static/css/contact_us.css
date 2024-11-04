@@ -1,0 +1,101 @@
+body {
+    
+    margin: 0px;
+    background-color: aquamarine; /* Replace 'path/to/your/background-image.jpg' with your image file path */
+    background-size: cover; /* Adjusts the size of the background image */
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 25%;
+}
+header {
+    background-color: #333;
+    color: white;
+    text-align: right;
+    padding: 10px 0px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-column {
+
+    flex: 1;
+    padding: 20px;
+    margin-right: 30px;
+    border: 1px solid black;
+    border-radius: 8px; 
+}
+.info-column {
+    flex:1;
+    padding: 20px;
+    background-color: #390878;
+    margin-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 8px;    
+}
+
+.messages-container {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #2a6fa8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s; /* Duration of hover effect */
+    box-shadow: 10px 10px 10px -1px rgba(235, 112, 123, 0.16), -10px -10px 10px -1px rgba(121, 50, 50, 0.7);
+
+    }
+    
+    /* button hover effect */
+    button:hover {
+    background-color: #8db6f3; /* Darker green on hover */
+    color: black;
+    }
+    
+    /* button focus effect */
+    button:focus {
+    background-color: #aa4f4f; /* Darker green on focus */
+    color: black;
+    }
+    
+    /* button click effect */
+    button:active {
+    background-color: #3d71b4; /* Darker green on click */
+    box-shadow: 0 5px #af8b8b;
+    transform: translateY(4px);
+    }

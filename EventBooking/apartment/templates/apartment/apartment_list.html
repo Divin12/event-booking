@@ -1,0 +1,490 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your existing meta tags and CSS links -->
+    <style>
+        /* Your existing styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-left: 10%;
+            margin-right: 10%;
+            
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 2px;
+            border-radius: 5px;
+        }
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav li {
+            margin-right: 20px;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .subnav {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 120px;
+            z-index: 1;
+        }
+        .nav-item:hover .subnav {
+            display: block;
+        }
+        .subnav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 0px;
+        }
+        .subnav a:hover {
+            background-color: #444;
+        }
+        
+        
+        .dashboard {
+            display: flex;
+            transition: flex 0.5s;
+        }
+        .complementary-column {
+            background-color: #565353;
+            flex: 1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .complementary ul, button {
+            flex: 4;
+            background-color: black;
+          }
+          .complementary a {
+            color: #bfd7f3;
+          }
+        
+        
+        .dashboard-button {
+            background-color: #303435;
+            color: white;
+            padding: 0px 0px;
+            border: none;
+          }
+          .left-button {
+           margin-right: auto;
+          }
+        
+        
+        
+        .details-column {
+            flex: 5;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            background-color: #e1e0e0;
+            border-radius: 10px;
+        }
+        
+        .type-selectors {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .type-selectors select {
+            flex: 1;
+            margin: 5px;
+        }
+        .type-selectors h3 {
+            margin: 5px 5px 0 0;
+        }
+        
+        
+        
+
+
+        .apartment-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .apartment {
+            flex-basis: calc(30.3% - 10px);
+            background-color: #5d5959;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .apartment img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .apartment-text {
+            text-align: center;
+            color: #fff;
+        }
+
+        .apartment-name {
+            font-weight: bold;
+        }
+
+        .apartment-price {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .book-apartment-button {
+            display: block;
+            margin: 0 auto;
+            color: rgb(235, 235, 247);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-media a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .partner-logos img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+
+        button {
+            background-color: #293b49;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s; /* Duration of hover effect */
+            
+        }
+   
+   /* button hover effect */
+        button:hover {
+            background-color: #3e41eb; /* Darker green on hover */
+            color: black;
+        }
+   
+   /* button focus effect */
+        button:focus {
+            background-color: #aa4f4f; /* Darker green on focus */
+            color: black;
+        }
+   
+   /* button click effect */
+        button:active {
+            background-color: #b43d90; /* Darker green on click */
+            box-shadow: 0 5px #af8b8b;
+            transform: translateY(4px);
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            height: 100px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .social-media,
+        .partner {
+            flex: 0 0 30%;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            margin-right: 200px;
+        }
+        
+ 
+
+        /* Social Media section */
+        .social-media {
+            align-self: flex-start;
+        }
+        
+        .social-icons {
+            display: flex;
+            flex-direction: row;
+            width: 30px;
+        }
+        
+        .social-icons img {
+           border-radius:30px;
+            width: 30px;
+        }
+
+        .social-icons a {
+            margin-bottom: 5px;
+        }
+        
+        /* Partner section */
+        .partner {
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .partner h3 {
+            align-self: flex-end;
+            
+        }
+        
+        .partner .partner-logos {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            margin-left: 400px;
+        }
+        
+        .partner .partner-logos a {
+            margin-bottom: 10px;
+        }
+
+        .partner-logos img {
+            width: 70px;
+            border-radius: 40px;
+            margin: 5px;
+        }
+        
+        .big-image img {
+            width: 120px; /* Adjust the width as desired */
+            height: 50px;
+        }
+        
+
+
+    </style>
+    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!-- Your existing HTML content -->
+    <div class="header">
+        <ul class="'nav">
+            <li class="nav-item right-button">
+                <button id="toggleDashboardButton" class="dashboard-button">Dashboard</button>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li>
+                <form method="get" action="{% url 'core:index' %}">
+                    <button type="submit">Home</button>
+                </form>
+            </li>
+            <li>
+                <form method="get" action="{% url 'core:contact_us' %}">
+                    <button type="submit">Contact Us</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <button type="#">Account</a>
+                <ul class="subnav">
+                    <li>
+                        <a href="{% url 'user_Authentification:profile_detail' %}">profile</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'user_Authentification:logout_view' %}">Logout</a>
+                    </li>
+                    
+                </ul>
+            </li>
+
+        </ul>
+        
+
+    </div>
+
+
+    <div class="dashboard">
+        <div class="complementary-column">
+            <ul class="complementary">
+                <button id="setting-link" style="display: link;"><a href="{% url 'user_Authentification:password_reset' %}">Setting</a></button>
+            </ul>
+        </div>
+        <div class="details-column">
+            <div class="type-selectors">
+                <h3>Booking Type</h3>
+                <select id="bookingType">
+                    <option value="select">Select</option>
+                    <option value="single">Single Booking</option>
+                    <option value="group">Group Booking</option>
+                </select>
+        
+                <h3>Apartment Location</h3>
+                <select id="apartmentLocation">
+                    <option value="select">Select</option>
+                    <option value="studio">Nairobi</option>
+                    <option value="1bedroom">Kishasa</option>
+                    <option value="2bedroom">Mombasa</option>
+                </select>
+
+            </div>
+
+            <div class="type-selectors">
+                <h3>Apartment type</h3>
+                <select id="apartmentType">
+                    <option value="select">Select</option>
+                    <option value="studio">Studio Apartment</option>
+                    <option value="1bedroom">1 Bedroom Apartment</option>
+                    <option value="2bedroom">2 Bedroom Apartment</option>
+                </select>
+            </div>
+
+            <h2>Available Apartments</h2>
+
+            <div class="apartment-row">
+                {% for apartment in apartments %}
+                    <div class="apartment">
+                        <img class="apartment-image" src="{{ apartment.image.url }}" alt="{{ apartment.name }}">
+                        <div class="apartment-text">
+                            <div class="apartment-name">{{ apartment.name }}</div>
+                            <div class="apartment-location">Location: {{ apartment.location }}</div>
+                            <div class="apartment-type">Type: {{ apartment.type }}</div>
+                            <div class="apartment-employee">
+                                {% if apartment.employee %}
+                                    Employee: {{ apartment.employee.name }}
+                                {% else %}
+                                    No employee assigned
+                                {% endif %}
+                            </div>
+
+                            <div class="apartment-price">${{ apartment.price_per_month }}/month</div>
+                            {% comment %} <a href="book_apartment.html">
+                                <button class="book-apartment-button">Book Apartment</button>
+                            </a> {% endcomment %}
+                            <div class="apartment">
+                                <!-- Other apartment details -->
+                                <a href="{% url 'booking:book_apartment' apartment.id %}" style="text-decoration: none;">
+                                    <button class="book-apartment-button">Book Apartment</button>
+                                </a>
+
+                                <a href="{% url 'apartment:apartment_detail' apartment.name %}">
+                                    <button class="apartment-detail-button">Apartment detail</button>
+                                    </a>
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Break the row after every third apartment -->
+                    {% if forloop.counter|divisibleby:"3" %}
+                        </div><div class="apartment-row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="social-media">
+            <h2>Social Media</h2>
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><img src="{% static 'css/images/facebook.png' %}" alt="Facebook"></a>
+                <a href="https://www.twitter.com"><img src="{% static 'css/images/twiter.png' %}" alt="Twitter"></a>
+                <a href="https://www.instagram.com"><img src="{% static 'css/images/instagram.jpeg' %}" alt="Instagram"></a>
+                <a href="https://www.linkedin.com"><img src="{% static 'css/images/linkedin.png' %}" alt="LinkedIn"></a>
+            </div>
+        </div>
+
+        <p class="copyright">&copy; 2023 Apartment Event Booking</p>
+
+        <div class="partner">
+            <h2>Partners</h2>
+            <div class="partner-logos">
+                <a href="https://www.cisco.com">
+                    <img src="{% static 'css/images/cisco.png' %}" alt="Cisco">
+                </a>
+                <a href="https://quetu.co.ke" class="big-image">
+                    <img src="{% static 'css/images/quetu.png' %}" alt="Quetu">
+                </a>
+                <a href="https://www.ibm.com">
+                    <img src="{% static 'css/images/ibm.png' %}" alt="IBM">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+    
+    <script>
+        const toggleDashboardButton = document.getElementById("toggleDashboardButton");
+        const settingLink = document.getElementById("setting-link");
+        let settingVisible = false;
+    
+        toggleDashboardButton.addEventListener("click", () => {
+            settingVisible = !settingVisible;
+            settingLink.style.display = settingVisible ? "block" : "none";
+    
+            // Adjust the dashboard flex when the "Setting" link is shown or hidden
+            document.querySelector(".dashboard").style.flex = settingVisible ? "1" : "2";
+        });
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+

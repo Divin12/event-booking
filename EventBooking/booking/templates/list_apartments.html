@@ -1,0 +1,9 @@
+<!-- List of available apartments -->
+<h2>Available Apartments</h2>
+<ul>
+    {% for apartment in apartments %}
+        <li>
+         {{ apartment.name }} - <a href="{% url 'booking:book_apartment' apartment.id%}">Book Now</a>
+        </li>
+    {% endfor %}
+</ul>

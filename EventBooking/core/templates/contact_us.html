@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact_us.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <form method="get" action="{% url 'core:index' %}">
+                        <button type="submit">HOME</button>
+                    </form>
+                </li>
+                <li>
+                    <form method="get" action="{% url 'apartment:apartment_list' %}">
+                        <button type="submit">APARTMENT LIST</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <h1>Contact Us</h1><br><br><br><br>
+
+    <div class="contact-container">
+        <div class="form-column">
+            
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    
+        <div class="info-column">
+            <h2>Our Information</h2>
+            <!-- Additional information goes here -->
+            <p>Email: robyandivictor@gmail.com</p>
+            <p>phone: 07XXXXXXXX</p>
+            <p>phone: 0764985XXX</p>
+            <p>Address: Nairobi/ Karen</p>
+        </div>
+    </div>
+
+    <div class="messages-container">
+        <h2>Messages</h2>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

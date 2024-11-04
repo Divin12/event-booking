@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apartment Names</title>
+</head>
+<body>
+    <h1>All Apartment Names</h1>
+    <ul>
+        {% for apartment in apartments %}
+            <li>{{ apartment.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

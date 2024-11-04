@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="with=device, initial-scale=1.0">
+    <title>ROBIAN DIVICTOR</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="images/png" href="images/logo.jpg">
+    <link rel="stylesheet" href="{% static 'css/ind.css' %}">
+    
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="{% static 'images/logo.jpg' %}"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+
+                    <li>
+                        <form method="get" action="{% url 'core:index' %}">
+                            <button type="submit">HOME</button>
+                        </form>
+                    </li>
+                   
+                    <li>
+                      <form method="get" action="/admin/">
+                          <button type="submit">ADMIN</button>
+                      </form>
+                  </li>
+                  
+                  <li>
+                    <form method="get" action="/employees/list">
+                        <button type="submit">EMPLOYEES</button>
+                    </form>
+                </li>
+                    <li>
+                      <form method="get" action="/user/signup/">
+                          <button type="submit">CUSTOMER</button>
+                      </form>
+                  </li>
+
+                </li>
+                <li>
+                  <form method="get" action="{% url 'core:contact_us' %}">
+                      <button type="submit">CONTACT US</button>
+                  </form>
+              </li>
+            
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            
+                <h1>ROBYAN DIVICTOR</h1>
+            
+            <p></p>
+            <h2>
+                <i>
+                    <marquee behavior="alternative" direction="left" scrollemount="4">
+
+                    </marquee>
+                </i>
+            </h2>
+            <span class="text1">
+                Welcome in
+            </span>
+            <span class="text2">
+                Robyan Divictor
+            </span>
+        </div>
+    </section>
+</body>

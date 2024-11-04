@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Employees</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/employe.css' %}">
+</head>
+<body>
+    <h1>List of Employees</h1>
+
+    <ul>
+        {% for employee in employees %}
+            <li>
+                <a href="{% url 'employees:employee_detail' employee.name %}">{{ employee.name }}</a> - {{ employee.role }}
+                <!-- Add other details you want to display -->
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

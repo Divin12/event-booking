@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>User profile</title>
+        <style>
+            body {
+                margin: 0 ;
+                background-color: #fff;
+                text-align: center;
+            }
+
+            .header {
+                background-color: #333; /* Change this to your desired header color */
+                color: #fff; /* Text color */
+                padding: 5px;
+                text-align: center;
+            }
+        
+            .nav {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
+        
+            .nav li {
+                margin: 0 10px;
+            }
+        
+            .nav li button {
+                background: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+            }
+        
+            .nav li button:hover {
+                text-decoration: underline;
+            }
+        
+            h1 {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            img {
+                width: 150px; 
+                height: 150px;
+                border: 1px solid #333;
+                border-radius: 50%;
+                padding: 5px;
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+
+            form {
+                margin-top: 50px;
+            }
+
+            button {
+                background-color: #333;
+                color: #fff;
+                width: 200px;
+                height: 30px;
+                border-radius: 20px;            }
+
+        </style>
+    </head>
+<body>
+<!-- profile_detail.html -->
+<div class="header">
+    <ul class="nav">
+        <li>
+            <form method="get" action="{% url 'core:index' %}">
+                <button type="submit">Home</button>
+            </form>
+        </li>
+
+        <li>
+            <form method="get" action="{% url 'apartment:apartment_list' %}">
+                <button type="submit">APARTMENT LIST</button>
+            </form>
+        </li>
+    </div>
+</div>
+    </header>
+
+<h1>User Profile</h1>
+{% if profile.profile_picture %}
+    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+{% endif %}
+
+<p>Username: {{ profile.user.username }}</p>
+<p>Phone Number: {{ profile.phone_number }}</p>
+<p>Address: {{ profile.address }}</p>
+
+
+<form method="get" action="create-profile">
+    <button type="submit">MODIFY YOUR PROFILE</button>
+</form>
+
+<!-- Add other profile details here -->
+</body>
+</html>

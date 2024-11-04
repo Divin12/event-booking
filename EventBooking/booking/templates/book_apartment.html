@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+    <title>Booking page</title>
+    <style>
+    /* Apply styles to the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Style the heading */
+h2 {
+    text-align: center;
+    background-color: rgb(67, 67, 196);
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    border-radius: 10px;
+}
+
+/* Style the form container */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+/* Style the form fields and labels */
+form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- book_apartment.html -->
+<h2>Book Apartment: {{ apartment.name }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Book Now</button>
+</form>
+
+</body>
+
+</html>

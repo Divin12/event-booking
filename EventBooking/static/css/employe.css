@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: palegoldenrod;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the heading */
+h1 {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+
+}
+
+/* Style the employee list container */
+ul {
+    list-style: none;
+    padding: 80px 500px;
+    margin: 0;
+
+}
+
+/* Style each employee list item */
+li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the employee name link */
+a {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style the employee role (title) */
+span {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Hover effect for employee items */
+li:hover {
+    background-color: #e6e6e6;
+    transition: background-color 0.3s;
+}
