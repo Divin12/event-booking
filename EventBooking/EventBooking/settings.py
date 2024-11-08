@@ -11,22 +11,39 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+import os
+import environ
+
+#Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+#Set the SECRET_KEY
+SECRET_KEY = env("SECRET_KEY")
+FERNET_KEY = env("FERNET_KEY").encode()
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zi&w45uzd1zam07ujp_h9*e9(zm6b-5s=z&4=6$zy15$uj-p^&'
+SECRET_KEY='django-insecure-zi&w45uzd1zam07ujp_h9*e9(zm6b-5s=z&4=6$zy15$uj-p^&'
+FERNET_KEY='zKhix6kAZqIwL1vvSvIyj3TF16D-bl2cqSi9fykMVao='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+
 
 
 # Application definition
@@ -42,6 +59,8 @@ INSTALLED_APPS = [
     'payment',
     'employees',
     'booking',
+    'django_otp',
+    'django_otp.plugins.otp_totp',
     
     
     'django.contrib.admin',
@@ -133,7 +152,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / "static",
 ]
 
 
@@ -150,3 +169,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'apartment/apartment_list/'
 
 LOGIN_URL = 'signin'  # Update 'login' with your actual login URL
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'django_warning.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
+
+
+print("SECRET_KEY:", env("SECRET_KEY"))
+print("FERNET_KEY:", env("FERNET_KEY"))

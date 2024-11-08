@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apartment Detail</title>
+</head>
+<body>
+    <h1>Apartment Detail</h1>
+    <p>Apartment Name: {{ apartment.name }}</p>
+    <!-- Other apartment details -->
+
+    <div class="apartment-employee">
+        {% if apartment.assigned_employee %}
+            <p>Employee: {{ apartment.assigned_employee.name }}</p>
+            <p>Role: {{ apartment.assigned_employee.role }}</p>
+            <!-- Display other employee details as needed -->
+        {% else %}
+            <p>No employee associated with this apartment</p>
+        {% endif %}
+    </div>
+</body>
+</html>
